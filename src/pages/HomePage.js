@@ -31,6 +31,7 @@ const HomePage = () => {
   return (
     <div className={classes.main}>
       <Container className={classes.grid} maxWidth="lg">
+        Teste
       </Container>
     </div>
   );
