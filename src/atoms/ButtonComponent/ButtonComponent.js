@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Button, CircularProgress } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
 
 const ButtonCompoent = (props) => {
   const {
@@ -10,7 +9,6 @@ const ButtonCompoent = (props) => {
     color,
     buttonLabel,
     onClick,
-    hasCloseIcon = false,
   } = props;
 
   return (
@@ -20,7 +18,6 @@ const ButtonCompoent = (props) => {
       color={color ? color : "primary"}
       disabled={loading}
     >
-      {hasCloseIcon ? <CloseIcon /> : ""}
       {buttonLabel}
       {loading ? (
         <CircularProgress

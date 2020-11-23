@@ -3,23 +3,24 @@ import React from "react";
 import { makeStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   header: {
     position: "relative",
     zIndex: 4,
 
     height: 60,
     padding: "0 20px",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
 
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
 
     "& a": {
-      color: "#fff",
+      color: theme.palette.primary.contrastText,
       textDecoration: "none",
-      fontSize: "2em"
-    }
+      fontSize: "2em",
+    },
   },
 }));
 
@@ -29,9 +30,7 @@ const SimpleHeader = () => {
   return (
     <header className={classes.header}>
       <nav>
-        <Link to="/">
-          Weather Application
-        </Link>
+        <Link to="/">NumDeck</Link>
       </nav>
     </header>
   );

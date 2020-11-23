@@ -7,7 +7,6 @@ import {
 import DefaultTemplate from "./templates/DefaultTemplate";
 
 import HomePage from "./pages/HomePage";
-import DetailPage from "./pages/DetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
@@ -16,8 +15,6 @@ function App() {
       <div className="App">
         <Switch>
           <DefaultTemplate exact path="/" component={HomePage} />
-
-          <DefaultTemplate exact path="/details" component={DetailPage} />
 
           <DefaultTemplate component={NotFoundPage} />
         </Switch>

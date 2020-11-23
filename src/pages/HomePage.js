@@ -1,63 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import { ENUM_START_LOCATION } from "../utils/constants";
+import { makeStyles, Container } from "@material-ui/core";
 
-import SearchContainer from "../organisms/SearchContainer/SearchContainer";
-import MapsContainer from "../molecules/MapsContainer/MapsContainer";
+const useStyles = makeStyles((theme) => ({
+  main: {
+    backgroundColor: theme.palette.primary.dark,
+  },
+  grid: {
+    paddingTop: 64,
+    paddingBottom: 64,
+    display: "grid",
+    gap: "32px 32px",
+    gridTemplateColumns: "352px auto",
+    gridTemplateRows: "432px 156px",
+
+    "& > section": {
+      gridRow: "1 / 3",
+      gridColumn: "2",
+    },
+
+    "& .MuiPaper-root": {
+      backgroundColor: theme.palette.primary.main,
+    },
+  },
+}));
 
 const HomePage = () => {
-  const [loading, setLoading] = useState(true);
-  const [center, setCenter] = useState({ ...ENUM_START_LOCATION });
-  const [marker, setMarker] = useState({ ...ENUM_START_LOCATION });
-
-  useEffect(() => {
-    const getCoordinates = async () => {
-      // add timeout to avoid eternal loading
-      const options = {
-        enableHighAccuracy: true,
-        timeout: 3000,
-        maximumAge: 0
-      };
-
-      navigator.geolocation.getCurrentPosition(function (position) {
-
-        setCenter({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
-
-        setMarker({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
-        setLoading(false);
-      },
-      function(error) {
-        console.error("Error Code = " + error.code + " - " + error.message);
-        setLoading(false);
-      }, options);
-    };
-
-    if ("geolocation" in navigator) {
-      getCoordinates();
-    } else {
-      setLoading(false);
-    }
-  }, []);
+  const classes = useStyles();
 
   return (
-    <div>
-      <SearchContainer
-        coordinates={marker ? marker : center}
-        loading={loading}
-      />
-
-      <MapsContainer
-        loading={loading}
-        center={center}
-        marker={marker}
-        onClickHanlder={setMarker}
-      />
+    <div className={classes.main}>
+      <Container className={classes.grid} maxWidth="lg">
+      </Container>
     </div>
   );
 };
