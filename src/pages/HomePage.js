@@ -5,6 +5,7 @@ import { makeStyles, Container } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   main: {
     backgroundColor: theme.palette.primary.dark,
+    height: '100%'
   },
   grid: {
     paddingTop: 64,

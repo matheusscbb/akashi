@@ -1,0 +1,17 @@
+{
+  "title": "Welcome to react using react-i18next",
+  "selector": {
+    "theme": {
+        "name": "Colors",
+        "default": "Default",
+        "dark": "Dark"
+    }
+  },
+  "components": {
+    "languageSelector": {
+      "name": "Language",
+      "ptBr": "Portuguese (Brazil)",
+      "en": "English"
+    }
+  }
+}

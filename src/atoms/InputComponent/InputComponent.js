@@ -1,20 +1,34 @@
 import React from "react";
 
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-
-  },
-}));
 
 const InputComponent = (props) => {
-  const { key, keyEnum } = props;
-  const classes = useStyles();
+  // variants can be ["standard","filled","outlined"];
+  // colors can be ["primary","secondary"];
+  // see more: https://material-ui.com/pt/components/text-fields/#text-field.
+  const {
+    value,
+    onChangehandler,
+    hasError = false,
+    label = "",
+    helperText = "",
+    variant = "standard",
+    color="secondary",
+    disabled = false
+  } = props;
 
   return (
-    <TextField className={classes.container} color="secondary" />
+    <TextField
+      color={color}
+      value={value}
+      onChange={onChangehandler}
+      error={hasError}
+      id={`${label}-input-text`}
+      label={label}
+      helperText={helperText}
+      variant={variant}
+      disabled={disabled}
+    />
   );
 };
 

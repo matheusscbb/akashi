@@ -1,6 +1,6 @@
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
+export const DefaultTheme = createMuiTheme({
   type: 'dark',
   palette: {
     primary: {
@@ -11,17 +11,14 @@ const theme = createMuiTheme({
     },
     secondary: {
       light: '#8A7EFF',
-      main: '#6158B3',
+      main: '#ff00a5',
       // dark: será calculada com base palette.secondary.main,
       contrastText: '#eee'
     }
   },
+  // CUSTOM FONT SIZE
+  // typography: {
+  //   fontSize: 12,
+  // },
 });
 
-export default function DarkTheme(props) {
-  return (
-    <ThemeProvider theme={theme}>
-      {props.children}
-    </ThemeProvider>
-  );
-}

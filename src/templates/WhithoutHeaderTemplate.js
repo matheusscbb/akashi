@@ -2,19 +2,16 @@ import React from "react";
 
 import { Route } from "react-router-dom";
 
-import SimpleHeader from "../molecules/SimpleHeader/SimpleHeader";
 import ThemeSelector from "../theme/ThemeSelector";
 
-
-const DefaultTemplate = ({ component: Component, ...rest }) => {
+const WhithoutHeaderTemplate = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(props) => {
         return (
           <ThemeSelector>
-            <div style={{height: 'calc(100vh - 60px)'}}>
-              <SimpleHeader />
+            <div style={{height: '100vh'}}>
               <Component {...props} />
             </div>
           </ThemeSelector>
@@ -24,4 +21,4 @@ const DefaultTemplate = ({ component: Component, ...rest }) => {
   );
 };
 
-export default DefaultTemplate;
+export default WhithoutHeaderTemplate;
